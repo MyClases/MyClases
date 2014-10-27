@@ -14,4 +14,5 @@ public class MyProfeContract {
 
         public static final String COLUMN_PHONE="telefono";
     }
+
 }

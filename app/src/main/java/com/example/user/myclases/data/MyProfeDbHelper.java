@@ -3,7 +3,8 @@ package com.example.user.myclases.data;
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
-import com.example.user.myclases.data.MyProfeContract.*;
+
+import com.example.user.myclases.data.MyProfeContract.MyProfeEntry;
 /**
  * Created by Diego on 22-10-2014.
  */
@@ -17,15 +18,17 @@ public class MyProfeDbHelper extends SQLiteOpenHelper {
         super(context, DATABASE_NAME,null, DATABASE_VERSION);
     }
 
+
+
     @Override
     public void onUpgrade(SQLiteDatabase sqLiteDatabase, int i, int i2) {
 
 
     }
 
-    @Override
-    public void onCreate(SQLiteDatabase sqLiteDatabase) {
 
+    @Override
+    public void onCreate(SQLiteDatabase db) {
         final String createMyProfeSql = String.format("CREATE TABLE %s (" +
                         "%s INTEGER PRIMARY KEY AUTOINCREMENT, " +
                         "%s TEXT NOT NULL, " +
@@ -35,7 +38,18 @@ public class MyProfeDbHelper extends SQLiteOpenHelper {
                 MyProfeEntry.COLUMN_NAME, MyProfeEntry.COLUMN_PHONE,
                 MyProfeEntry.COLUMN_PHONE);
 
-        sqLiteDatabase.execSQL(createMyProfeSql);
+        db.execSQL(createMyProfeSql);
 
     }
+    public boolean insertar( String nombre, String telefono) {
+        if (nombre.equals("")){return false;}
+        if(telefono.equals("")){return false;}
+        SQLiteDatabase db = getWritableDatabase();
+        db.execSQL("INSERT INTO MyProfe VALUES ( null, "+
+                nombre+" , "+ telefono +")" );
+        db.close();
+        return true;
+    }
+
+
 }
