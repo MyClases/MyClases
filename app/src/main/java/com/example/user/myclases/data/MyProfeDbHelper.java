@@ -3,11 +3,7 @@ package com.example.user.myclases.data;
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
-
-import com.example.user.myclases.data.MyProfeContract.MyProfeEntry;
-import com.example.user.myclases.data.MyProfeContract.MyProfeEntry2;
-import com.example.user.myclases.data.MyProfeContract.MyProfeEntry3;
-import com.example.user.myclases.data.MyProfeContract.MyProfeEntry4;
+import com.example.user.myclases.data.MyProfeContract.*;
 /**
  * Created by Diego on 22-10-2014.
  */
